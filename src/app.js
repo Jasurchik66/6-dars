@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api/students', studentRoutes);
 app.use('/api/groups', groupRoutes);
 
-app.use((err, req, res, next) => {
+app.use((req, res) => {
   res.status(500).json({ 
     message: "Serverda xatolik yuz berdi",
   });
@@ -26,7 +26,7 @@ app.use((req, res) => {
 const PORT = 3000;
 
 app.listen(PORT, () => {
-  console.log(`Server ${PORT} portda ishga tushdi`);
+  console.log(`Server started on port ${PORT}`);
 });
 
 export default app;
